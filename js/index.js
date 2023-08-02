@@ -243,3 +243,88 @@ document.querySelector("#btnXuatThongTin").onclick = function (event) {
   }
   document.querySelector("#tblNhanVien").innerHTML = html;
 };
+
+
+/**  export và import
+ *  --- export default -> imporrt đặt tên tùy ý và không có dấu {}
+ * ---- export thường -> import tên phải giống với export và có {}
+ */
+
+import { NhanVien } from "../models/NhanVien.js";
+
+let nvE = new  NhanVien();
+console.log(nvE);
+
+
+/**  class
+ * 
+ */
+
+// ES5 
+
+function SinhVienES5(masV, tensV){
+
+  this.maSv = masV;
+  this.tenSV = tensV;
+  this.hienThiTT = function(){
+    console.log('Mã sinh viên',this.maSv);
+    console.log('Tên sinh viên',this.tenSV);
+  }
+}
+
+// ES6
+
+class SinhVienES6 {
+
+  maSV = '';
+  tenSV = '';
+  constructor(masv, tensv){ // hàm khởi tạo
+    this.maSV = masv;
+    this.tenSV = tensv;
+  }
+  // Phương thức
+  hienThiTT(){
+    console.log('Mã sinh viên',this.maSv);
+    console.log('Tên sinh viên',this.tenSV);
+  }
+}
+// Hàm khởi tạo có tham số trong ES5
+let svES5 = new SinhVienES5(01,'Nguyễn Văn A');
+console.log(svES5);
+//
+let sv = new SinhVienES6();
+console.log(sv);
+
+/**
+ *  OOP -ES6
+ */
+
+class NguoiDung {
+
+  taiKhoan = '';
+  matKhau ='';
+  email = '';
+  soDienThoai = '';
+  cmnd = '';
+  constructor(){}
+  dangNhap (){
+    console.log('Đăng Nhập')
+  }
+  dangXuat (){
+    console.log('Đăng Xuất')
+  }
+}
+
+class GiangVien extends NguoiDung{ // extends : kế thừa
+  
+  luogCB = '';
+  soBuoiDay = '';
+  constructor(){
+    super(); 
+  }
+  chamCong(){
+
+    let luong = this.luogCB * this.soBuoiDay;
+    console.log('Chấm công GV', luong);
+  }
+}
