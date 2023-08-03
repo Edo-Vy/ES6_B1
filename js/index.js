@@ -306,7 +306,7 @@ class NguoiDung {
   email = '';
   soDienThoai = '';
   cmnd = '';
-  constructor(){}
+  constructor(){} // (1)
   dangNhap (){
     console.log('Đăng Nhập')
   }
@@ -320,7 +320,7 @@ class GiangVien extends NguoiDung{ // extends : kế thừa
   luogCB = '';
   soBuoiDay = '';
   constructor(){
-    super(); 
+    super(); // đại diện hàm của lớp cha, do js ban đầu ko thiết kế cho oop, gọi lại hàm cha, khởi tạo object cha
   }
   chamCong(){
 
